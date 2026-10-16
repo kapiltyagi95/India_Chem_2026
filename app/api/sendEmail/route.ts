@@ -6,7 +6,7 @@ export const POST = async (req: NextRequest) => {
         const emailPayload = await req.json();
 
         // 1. Your REAL IOCL Email credentials (Hidden securely on the server!)
-        const emailApiUrl = 'https://bdqacvtms.indianoil.in/api/email';
+        const emailApiUrl = 'https://bdcvtms.indianoil.in/api/email';
         const emailApiKey = 'bdis@2025'; 
 
         const fetchOptions = {
