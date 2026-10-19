@@ -137,7 +137,7 @@ const GradeDetailPage = ({ params }: { params: Promise< { gradeId: string } >}) 
                             MailFrom: "iocladmin@indianoil.in",
                             MailTo: [emailInput],
                             MailCCTo: "",
-                            MailBCCTo: ["yadavsp@indianoil.in"],
+                            MailBCCTo: ["yadavsp@indianoil.in", "tyagikapil@indianoil.in"],
                             MailSubject: mailSubject,
                             MailBody: mailBody,
                             Attachments: [{ FileName: fileName, ContentBase64: pdfBase64 }],
@@ -150,9 +150,10 @@ const GradeDetailPage = ({ params }: { params: Promise< { gradeId: string } >}) 
                         });
 
                         if (!sendEmailResponse.ok) {
-                            const errorData = await sendEmailResponse.json();
-                            throw new Error(errorData.error || "Failed to send email via backend.");
-                        }
+    const errorData = await sendEmailResponse.json();
+    const message = errorData.cause ? `${errorData.error} (${errorData.cause})` : errorData.error;
+    throw new Error(message || "Failed to send email via backend.");
+}
 
                         toast.success(`TDS successfully sent to ${emailInput}!`, { id: toastId });
                         setShowEmailModal(false); 
