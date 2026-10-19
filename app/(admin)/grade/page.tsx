@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { Beaker, Atom, Microscope, TestTube, Pipette, Flame, Ruler, FlaskConical, Lightbulb, Package, X, Factory, Box, Tags } from "lucide-react";
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import CardHeaderSelf from "@/components/CardHeader";
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
@@ -149,6 +150,7 @@ const GradesPage = () => {
 
     return (
         <div className="w-full max-w-7xl mx-auto p-4 md:p-2 text-white flex flex-col h-screen">
+            {/* <CardHeader title="Polymer Grades" /> */}
             <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-center tracking-tight text-transparent bg-clip-text text-white">
                 Matching Polymer Grades
             </h1>
