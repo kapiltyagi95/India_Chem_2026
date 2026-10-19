@@ -67,7 +67,7 @@ export const POST = async (req: NextRequest) => {
         };
 
         // 4. Send the email using your external API
-        const emailApiUrl = 'https://bdcvtms.indianoil.in/api/email'; // Your external email API URL
+        const emailApiUrl = 'https://bdcvtms.indianoil.in/MailApi/api/email'; // Your external email API URL
         const emailApiKey = 'bdis@2025'; // Your external email API key
 
         const sendEmailResponse = await fetch(emailApiUrl, {
