@@ -11,19 +11,22 @@ export const GET = async (req: NextRequest) => {
     }
 
     const { data, error } = await supabase
-      .from('ms_propel_grades')
-      .select(`
-        GRADE_ID:grade_id, 
-        PRODUCT_NAME:product_name, 
-        SECTOR_NAME:sector_name, 
-        MFI:mfi, 
-        DENSITY:density, 
-        SPECIAL_CHARACTERISTICS:special_characteristics, 
-        GRADE_APPLICATION:grade_application,
-        tds_url 
-      `) // <--- Removed the comment from here!
-      .eq('grade_id', gradeId) // Filter by grade_id
-      .single(); // Expect a single result
+  .from('ms_propel_grades')
+  .select(`
+    GRADE_ID:grade_id, 
+    PRODUCT_NAME:product_name, 
+    SECTOR_NAME:sector_name, 
+    SUB_SECTOR:sub_sector,
+    MFI:mfi, 
+    DENSITY:density, 
+    SPECIAL_CHARACTERISTICS:special_characteristics, 
+    GRADE_APPLICATION:grade_application,
+    TECHNOLOGY:technology,
+    TECHNICAL_SPECIFICATION:technical_specification,
+    tds_url 
+  `)
+  .eq('grade_id', gradeId)
+  .single();
 
     if (error) {
       if (error.code === 'PGRST116') { // No rows found
